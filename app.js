@@ -9,6 +9,6 @@ const morgan = require('morgan');
 
 dotenv.config()
 
-app.listen(8800, () => {
+app.listen(port, () => {
   console.log(`Backend server is running on port ${port}!`)
 })
