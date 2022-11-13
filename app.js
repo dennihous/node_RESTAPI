@@ -9,6 +9,10 @@ const morgan = require('morgan');
 
 dotenv.config()
 
+mongoose.connect(process.env.MONGO_URI, {useNewUrlParser: true}, () => {
+  console.log("Connected to MONGO")
+})
+
 app.listen(port, () => {
   console.log(`Backend server is running on port ${port}!`)
 })
