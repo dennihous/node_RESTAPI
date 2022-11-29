@@ -58,32 +58,32 @@ router.put("/:id/like", async (req, res) => {
   }
 })
 
-// Get a post
-router.get("/:id", async (req, res) => {
-  try{
-    const post = await Post.findById(req.params.id)
-    res.status(200).json(post)
-  } catch(err){
-    res.status(500).json(err)
-  }
-})
+// // Get a post
+// router.get("/:id", async (req, res) => {
+//   try{
+//     const post = await Post.findById(req.params.id)
+//     res.status(200).json(post)
+//   } catch(err){
+//     res.status(500).json(err)
+//   }
+// })
 
-// Get of a users posts
-router.get("/timeline", async(req, res) => {
-  let postArray = []
-  try{
-    const currentUser = await User.findById(req.body.userId)
-    const userPosts = await Post.find({userId: currentUser._id })
-    const friendsPosts = await Promise.all(
-      currentUser.followings.map((friendId) => {
-          Post.find({ userId: friendId })
-      })
-    )
-    res.json(userPosts.concat(...friendsPosts))
-  } catch(err) {
-    res.status(500).json(err)
-  }
-})
+// // Get of a users posts
+// router.get("/timeline", async(req, res) => {
+//   let postArray = []
+//   try{
+//     const currentUser = await User.findById(req.body.userId)
+//     const userPosts = await Post.find({userId: currentUser._id })
+//     const friendsPosts = await Promise.all(
+//       currentUser.followings.map((friendId) => {
+//           Post.find({ userId: friendId })
+//       })
+//     )
+//     res.json(userPosts.concat(...friendsPosts))
+//   } catch(err) {
+//     res.status(500).json(err)
+//   }
+// })
 
 
 module.exports = router
