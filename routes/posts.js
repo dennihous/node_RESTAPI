@@ -61,6 +61,7 @@ router.put("/:id/like", async (req, res) => {
 
 // Get a post
 router.get("/:id", async (req, res) => {
+  console.log('--------', req.params.id);
   try{
     const post = await Post.findById(req.params.id)
     res.status(200).json(post)
