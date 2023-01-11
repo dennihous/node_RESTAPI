@@ -55,6 +55,15 @@ router.get("/", async (req, res) => {
   }
 })
 
+//get friends
+router.get("/friends/:userId", async (req, res) => {
+  try{
+
+  } catch(err){
+    res.status(500).json(err)
+  }
+})
+
 //follow a user
 router.put("/:id/follow", async (req, res) => {
   if(req.body.userId !== req.params.id){
